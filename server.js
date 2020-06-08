@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 
 const authRoute = require("./routes/authRoutes");
+const htmlRoutes = require("./routes/htmlRoutes");
 const postRoute = require("./routes/post");
 
 dotenv.config();
@@ -22,9 +23,10 @@ connection.once("open", function () {
   console.log("connected to db instance");
 });
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/user", authRoute);
+app.use("/", htmlRoutes);
 app.use("/api/post", postRoute);
 
 app.listen(PORT, () => {
