@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cookieParser = require('cookie-parser')
+
 const PORT = process.env.PORT || 3000;
 
 const authRoute = require("./routes/authRoutes");
@@ -22,6 +24,8 @@ connection.on("error", console.error.bind(console, "connection error:"));
 connection.once("open", function () {
   console.log("connected to db instance");
 });
+
+app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
