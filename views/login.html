@@ -38,10 +38,9 @@
             data: loginUser,
           })
             .then((res) => {
-              localStorage.setItem("token", res);
-              //localStorage.getItem("key");
-              console.log(localStorage);
-              //window.location.href = "welcome";
+              console.log('got a response!');
+              // That response had a res.cookie(...) set, which when your browser gets it causes a cookie to be set client-side. That's why we don't need to set localstorage. tasty! 
+              window.location.href = "welcome";
             })
             .catch((err) => {
               console.log(err);
