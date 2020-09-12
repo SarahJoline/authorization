@@ -30,5 +30,5 @@ app.use("/", htmlRoutes);
 app.use("/api/post", postRoute);
 
 app.listen(PORT, () => {
-  console.log(`listening at: http://localhost:${PORT}`);
+  console.log(`listening at: http://localhost:${PORT}/register`);
 });

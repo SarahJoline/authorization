@@ -38,7 +38,10 @@
             data: loginUser,
           })
             .then((res) => {
-              window.location.href = "welcome";
+              localStorage.setItem("token", res);
+              //localStorage.getItem("key");
+              console.log(localStorage);
+              //window.location.href = "welcome";
             })
             .catch((err) => {
               console.log(err);
